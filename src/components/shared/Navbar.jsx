@@ -3,9 +3,9 @@ import Link from "next/link";
 
 const Navbar = () => {
     return (
-        <div className="w-full mx-auto flex items-center justify-between">
+        <div className="w-full bg-gray-100 mx-auto flex items-center justify-between">
 
-            <div className="navbar w-full max-w-[1200px] mx-auto shadow-sm">
+            <div className="navbar w-full max-w-[1200px] mx-auto border-none">
                 <div className="navbar-start">
                     <div className="dropdown">
                         <div tabIndex={0} role="button" className="btn btn-ghost lg:hidden">
@@ -14,32 +14,18 @@ const Navbar = () => {
                         <ul
                             tabIndex="-1"
                             className="menu menu-sm dropdown-content bg-base-100 rounded-box z-1 mt-3 w-52 p-2 shadow">
-                            <li><a>Item 1</a></li>
-                            <li>
-                                <a>Parent</a>
-                                <ul className="p-2">
-                                    <li><a>Submenu 1</a></li>
-                                    <li><a>Submenu 2</a></li>
-                                </ul>
-                            </li>
-                            <li><a>Item 3</a></li>
+                            <li><Link href={"/"}>Home</Link></li>
+                            <li><Link href={"/all-books"}>All Books</Link></li>
+                            <li><Link href={"/my-profile"}>My Profile</Link></li>
                         </ul>
                     </div>
                     <Link href={"/"} className="text-xl font-semibold">OpenBook</Link>
                 </div>
                 <div className="navbar-center hidden lg:flex">
-                    <ul className="menu menu-horizontal px-1">
-                        <li><a>Item 1</a></li>
-                        <li>
-                            <details>
-                                <summary>Parent</summary>
-                                <ul className="p-2 bg-base-100 w-40 z-1">
-                                    <li><a>Submenu 1</a></li>
-                                    <li><a>Submenu 2</a></li>
-                                </ul>
-                            </details>
-                        </li>
-                        <li><a>Item 3</a></li>
+                    <ul className="menu menu-horizontal px-1 gap-6">
+                        <li><Link href={"/"}>Home</Link></li>
+                        <li><Link href={"/all-books"}>All Books</Link></li>
+                        <li><Link href={"/my-profile"}>My Profile</Link></li>
                     </ul>
                 </div>
                 <div className="navbar-end gap-4">
@@ -47,18 +33,6 @@ const Navbar = () => {
                     <button className="btn"><Link href={"/registration"}>Sign Up</Link></button>
                 </div>
             </div>
-            {/* <Link href={"/"}>Open Book</Link>
-
-            <div className="flex items-center gap-6">
-                <Link href={"/home"}>Home</Link>
-                <Link href={"/all-books"}>All Books</Link>
-                <Link href={"/my-profile"}>My Profile</Link>
-            </div>
-
-            <div className="flex items-center gap-4">
-                <button><Link href={"/login"}>Log In</Link></button>
-                <button><Link href={"/registration"}>Sign Up</Link></button>
-            </div> */}
         </div>
     );
 };
