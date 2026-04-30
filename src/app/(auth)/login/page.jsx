@@ -1,7 +1,9 @@
 "use client"
+import { authClient } from '@/lib/auth-client';
 import Link from 'next/link';
 import React from 'react';
 import { useForm } from 'react-hook-form';
+import { toast } from 'react-toastify';
 
 const RegistrationPage = () => {
 
@@ -12,8 +14,22 @@ const RegistrationPage = () => {
         formState: { errors },
     } = useForm()
 
-    const handleLogin = (data) => {
-        // console.log(data)
+    const handleLogin = async (data) => {
+
+        const { data: res, error } = await authClient.signIn.email({
+            email: data.email, // required
+            password: data.password, // required
+            rememberMe: true,
+            callbackURL: "/",
+        });
+
+        if (error) {
+            toast.error(error.message);
+        } else {
+            toast.success("Login successful!");
+        }
+
+        console.log(res, error)
     }
 
     return (
