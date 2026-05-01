@@ -43,7 +43,7 @@ const Navbar = () => {
                             <li><Link href={"/my-profile"}>My Profile</Link></li>
                         </ul>
                     </div>
-                    <Link href={"/"} className="text-xl font-semibold">OpenBook</Link>
+                    <Link href={"/"} className="text-xl font-bold">OpenBook</Link>
                 </div>
                 <div className="navbar-center hidden lg:flex">
                     <ul className="menu menu-horizontal px-1 gap-6">
@@ -55,7 +55,7 @@ const Navbar = () => {
                 <div className="navbar-end gap-4">
                     {isPending ? <span className="loading loading-spinner text-neutral"></span> : user
                         ? <>
-                            <h2 className="lg:block md:block hidden">Hello, {user?.name}</h2>
+                            <h2 className="lg:block md:block hidden">{user?.name}</h2>
                             <Image
                                 src={user?.image}
                                 width={30}

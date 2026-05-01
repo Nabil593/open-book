@@ -46,6 +46,9 @@ const Footer = () => {
                                 <Phone size={16} />
                                 <span>+880 1781-269971</span>
                             </div>
+                            <div>
+                                <p>Open daily, 9am — 9pm</p>
+                            </div>
                         </div>
                     </div>
 
