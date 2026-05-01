@@ -2,13 +2,16 @@
 import { authClient } from '@/lib/auth-client';
 import Link from 'next/link';
 import { useRouter } from 'next/navigation';
-import React from 'react';
+import React, { useState } from 'react';
 import { useForm } from 'react-hook-form';
+import { FaEye, FaEyeSlash, FaGoogle } from 'react-icons/fa';
 import { toast } from 'react-toastify';
 
 const RegistrationPage = () => {
 
     const router = useRouter();
+    const [showPassword, setShowPassword] = useState(true);
+    const [googleLoading, setGoogleLoading] = useState(false);
 
     const {
         register,
@@ -19,7 +22,7 @@ const RegistrationPage = () => {
 
     const handleSignUp = async (data) => {
 
-        const {email, name, photo, password} = data
+        const { email, name, photo, password } = data
 
         const { data: res, error } = await authClient.signUp.email({
             name: name, // required
@@ -28,8 +31,8 @@ const RegistrationPage = () => {
             image: photo,
             callbackURL: "/login",
         });
-        
-        if(error) {
+
+        if (error) {
             toast.error(error.message);
         } else {
             toast.success("Account created successfully!");
@@ -37,9 +40,22 @@ const RegistrationPage = () => {
         }
     }
 
+    const handleGoogle = async () => {
+        setGoogleLoading(true)
+        const { data, error } = await authClient.signIn.social({
+            provider: "google",
+        });
+
+        if (error) {
+            toast.error();
+        } else {
+            toast.success("Login successful!");
+        }
+    }
+
 
     return (
-        <div className='flex items-center justify-center flex-col space-y-4 mt-30'>
+        <div className='flex items-center justify-center flex-col space-y-4 mt-10'>
             <h2 className='text-3xl font-bold'>Sign Up</h2>
             <form onSubmit={handleSubmit(handleSignUp)}>
                 <fieldset className="fieldset mx-auto bg-base-200 border-base-300 rounded-box w-xs border p-4">
@@ -56,13 +72,20 @@ const RegistrationPage = () => {
                     <input type="email" className="input" name='email' {...register("email", { required: "Email field is required" })} placeholder="Email" />
                     {errors.email && <p className='text-red-500'>{errors.email.message}</p>}
 
-                    <label className="label">Password</label>
-                    <input type="password" className="input" name='password' {...register("password", { required: "Password field is required" })} placeholder="Password" />
-                    {errors.password && <p className='text-red-500'>{errors.password.message}</p>}
+                    <div className='relative'>
+                        <label className="label">Password</label>
+                        <input type={showPassword ? "text" : "password"} className="input" name='password' {...register("password", { required: "Password field is required" })} placeholder="Password" />
+                        <span className='absolute bottom-3.5 right-3 cursor-pointer' onClick={() => setShowPassword(!showPassword)}>
+                            {showPassword ? <FaEye /> : <FaEyeSlash />}
+                        </span>
+                        {errors.password && <p className='text-red-500'>{errors.password.message}</p>}
+                    </div>
 
                     <button className="btn btn-neutral mt-4">Sign Up</button>
+                    <div className="divider">OR</div>
                 </fieldset>
             </form>
+            <button onClick={handleGoogle} className='btn'>{googleLoading ? <span className="loading loading-xs loading-spinner text-neutral"></span> : <FaGoogle />} Login with Google</button>
             <p>Already have an account? <Link href={'/login'}><span className='text-blue-300'>Login</span></Link></p>
         </div>
     );

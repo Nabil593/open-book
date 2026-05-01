@@ -2,14 +2,29 @@
 import { authClient } from "@/lib/auth-client";
 import Image from "next/image";
 import Link from "next/link";
+import { useRouter } from "next/navigation";
+import { toast } from "react-toastify";
 
 
 const Navbar = () => {
+
+    const router = useRouter();
 
     const { data: session, isPending } = authClient.useSession();
 
     const user = session?.user;
     console.log(user)
+
+    const handleLogout = async () => {
+        const {data, error} = await authClient.signOut();
+        router.push("/login");
+
+        if (error) {
+            toast.error();
+        } else {
+            toast.success("Logout successful!");
+        }
+    }
 
 
     return (
@@ -49,7 +64,7 @@ const Navbar = () => {
                                 alt="Logo"
                                 className='rounded-full'
                             />
-                            <button onClick={async() => await authClient.signOut()} className="btn"><Link href={"/login"}>Logout</Link></button>
+                            <button onClick={handleLogout} className="btn"><Link href={"/login"}>Logout</Link></button>
                         </>
                         :
                         <>
