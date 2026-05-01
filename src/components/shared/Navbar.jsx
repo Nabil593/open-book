@@ -13,7 +13,6 @@ const Navbar = () => {
     const { data: session, isPending } = authClient.useSession();
 
     const user = session?.user;
-    console.log(user)
 
     const handleLogout = async () => {
         const {data, error} = await authClient.signOut();
@@ -33,7 +32,7 @@ const Navbar = () => {
             <div className="navbar w-full max-w-[1200px] mx-auto border-none">
                 <div className="navbar-start">
                     <div className="dropdown">
-                        <div tabIndex={0} role="button" className="btn btn-ghost lg:hidden">
+                        <div tabIndex={0} role="button" className="lg:hidden mr-2">
                             <svg xmlns="http://www.w3.org/2000/svg" className="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor"> <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M4 6h16M4 12h8m-8 6h16" /> </svg>
                         </div>
                         <ul
@@ -56,7 +55,7 @@ const Navbar = () => {
                 <div className="navbar-end gap-4">
                     {isPending ? <span className="loading loading-spinner text-neutral"></span> : user
                         ? <>
-                            <h2>Hello, {user?.name}</h2>
+                            <h2 className="lg:block md:block hidden">Hello, {user?.name}</h2>
                             <Image
                                 src={user?.image}
                                 width={30}

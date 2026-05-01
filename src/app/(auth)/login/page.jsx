@@ -48,7 +48,7 @@ const RegistrationPage = () => {
     }
 
     return (
-        <div className='flex items-center justify-center flex-col space-y-4 mt-20'>
+        <div className='flex items-center justify-center flex-col space-y-4 my-20'>
             <h2 className='text-3xl font-bold'>Login In</h2>
             <form onSubmit={handleSubmit(handleLogin)}>
                 <fieldset className="fieldset mx-auto bg-base-200 border-base-300 rounded-box w-xs border p-4">
