@@ -1,6 +1,5 @@
-import { Link } from 'lucide-react';
+import SingleBook from '@/components/shared/SingleBook';
 import React from 'react';
-import SingleBook from './SingleBook';
 
 
 const productsFetch = async () => {
@@ -10,20 +9,16 @@ const productsFetch = async () => {
     return data
 }
 
-const BookFeature = async () => {
+const AllBooksPage = async() => {
 
     const products = await productsFetch()
 
     return (
         <div className="flex justify-center items-center flex-col mb-10">
-            <div className='text-center mb-10'>
-                <h2 className="text-4xl font-bold tracking-tight">Featured Books</h2>
-                <p className="text-zinc-400 mt-2">Handpicked titles for your next great read.</p>
-            </div>
             <div className='grid lg:grid-cols-4 md:grid-cols-3 sm:grid-cols-2 grid-cols-1 gap-6'>
                 {
-                    products.slice(0, 4).map(product => {
-                        return <SingleBook key={product.id} product = {product}/>
+                    products.map(product => {
+                        return <SingleBook key={product.id} product={product} />
                     })
                 }
             </div>
@@ -31,4 +26,4 @@ const BookFeature = async () => {
     );
 };
 
-export default BookFeature;
+export default AllBooksPage;

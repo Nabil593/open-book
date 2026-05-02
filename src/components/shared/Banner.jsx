@@ -2,7 +2,7 @@ import Image from 'next/image';
 import React from 'react';
 import image01 from "@/assets/image.jpg"
 import image02 from "@/assets/image1.jpg"
-import image03 from "@/assets/image2.jpg"
+import Link from 'next/link';
 
 const Banner = () => {
     return (
@@ -22,7 +22,7 @@ const Banner = () => {
                         <p className="py-6">
                             A seamless and modern web application designed to digitize the traditional library experience.
                         </p>
-                        <button className="btn btn-neutral">Browser Now</button>
+                        <Link href={"/all-books"}><button className="btn btn-neutral">Browser Now</button></Link>
                     </div>
 
                     <Image
