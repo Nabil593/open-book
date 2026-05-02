@@ -22,7 +22,7 @@ const Banner = () => {
                         <p className="py-6">
                             A seamless and modern web application designed to digitize the traditional library experience.
                         </p>
-                        <Link href={"/all-books"}><button className="btn btn-neutral">Browser Now</button></Link>
+                        <Link href={"/books"}><button className="btn btn-neutral">Browser Now</button></Link>
                     </div>
 
                     <Image

@@ -4,20 +4,22 @@ import React from 'react';
 
 const SingleBook = ({ product }) => {
 
+    console.log(product)
+
     return (
-        <Link href={"/single-book"}>
+        <Link href={`/books/${product.id}`}>
             <div className="card bg-gray-200 w-[282px] shadow-sm">
                 <figure>
                     <Image
-                        src={product.image_url}
+                        src={product?.image_url}
                         width={250}
                         height={350}
-                        alt={product.title}
+                        alt={product?.title}
                         className="object-cover h-[300px] pt-4"
                     />
                 </figure>
                 <div className="card-body">
-                    <h2 className="card-title">{product.title}</h2>
+                    <h2 className="card-title">{product?.title}</h2>
                     <p></p>
                     <div className="card-actions justify-end">
                         <button className="btn btn-primary">Buy Now</button>

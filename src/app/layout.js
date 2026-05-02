@@ -1,4 +1,4 @@
-import { Geist, Geist_Mono } from "next/font/google";
+import { Geist, Geist_Mono, Poppins } from "next/font/google";
 import "./globals.css";
 import { ToastContainer } from "react-toastify";
 import FooterPage from "@/components/shared/Footer";
@@ -15,6 +15,12 @@ const geistMono = Geist_Mono({
   subsets: ["latin"],
 });
 
+const poppins = Poppins({
+  variable: "--font-poppins",
+  subsets: ["latin"],
+  weight: ["400", "500", "600"],
+});
+
 export const metadata = {
   title: "OpenBook",
   description: "Online Book Borrowing Platform",
@@ -28,7 +34,7 @@ export default function RootLayout({ children }) {
       className={`${geistSans.variable} ${geistMono.variable} h-full antialiased`}
       suppressHydrationWarning
     >
-      <body className="min-h-full flex flex-col" suppressHydrationWarning>
+      <body className={`min-h-full flex flex-col ${poppins.className}`} suppressHydrationWarning>
         <Navbar />
         <main className="flex-1">{children}</main>
         <Footer />

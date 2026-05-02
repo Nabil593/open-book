@@ -4,6 +4,7 @@ import Image from "next/image";
 import Link from "next/link";
 import { useRouter } from "next/navigation";
 import { toast } from "react-toastify";
+import defaultProfile from "@/assets/defaultProfile.png";
 
 
 const Navbar = () => {
@@ -15,7 +16,7 @@ const Navbar = () => {
     const user = session?.user;
 
     const handleLogout = async () => {
-        const {data, error} = await authClient.signOut();
+        const { data, error } = await authClient.signOut();
         router.push("/login");
 
         if (error) {
@@ -39,7 +40,7 @@ const Navbar = () => {
                             tabIndex="-1"
                             className="menu menu-sm dropdown-content bg-base-100 rounded-box z-1 mt-3 w-52 p-2 shadow">
                             <li><Link href={"/"}>Home</Link></li>
-                            <li><Link href={"/all-books"}>All Books</Link></li>
+                            <li><Link href={"/books"}>All Books</Link></li>
                             <li><Link href={"/my-profile"}>My Profile</Link></li>
                         </ul>
                     </div>
@@ -48,7 +49,7 @@ const Navbar = () => {
                 <div className="navbar-center hidden lg:flex">
                     <ul className="menu menu-horizontal px-1 gap-6">
                         <li><Link href={"/"}>Home</Link></li>
-                        <li><Link href={"/all-books"}>All Books</Link></li>
+                        <li><Link href={"/books"}>All Books</Link></li>
                         <li><Link href={"/my-profile"}>My Profile</Link></li>
                     </ul>
                 </div>
@@ -57,11 +58,15 @@ const Navbar = () => {
                         ? <>
                             <h2 className="lg:block md:block hidden">{user?.name}</h2>
                             <Image
-                                src={user?.image}
-                                width={30}
-                                height={10}
-                                alt="Logo"
-                                className='rounded-full'
+                                src={
+                                    (user?.image && typeof user.image === 'string' && user.image.startsWith('http'))
+                                        ? user.image
+                                        : defaultProfile
+                                }
+                                width={20}
+                                height={20}
+                                alt="Profile"
+                                className='h-8 w-8 rounded-full object-cover'
                             />
                             <button onClick={handleLogout} className="btn"><Link href={"/login"}>Logout</Link></button>
                         </>
