@@ -1,18 +1,30 @@
+"use client"
 import SingleBook from '@/components/shared/SingleBook';
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 
 
-const productsFetch = async () => {
-    const res = await fetch("https://json-data-book.onrender.com/books")
-    const data = await res.json();
-    return data
-}
+const BooksPage = () => {
 
-const BooksPage = async () => {
+    const category = ["All", "Story", "Tech", "Science"];
+    const [products, setProducts] = useState([]);
+    const [activeCategory, setActiveCategory] = useState("All");
+    const [searchTerm, setSearchTerm] = useState("");
 
-    const products = await productsFetch();
+    useEffect(() => {
+        const productsFetch = async () => {
+            const res = await fetch("https://json-data-book.onrender.com/books")
+            const data = await res.json();
+            setProducts(data)
+        }
+        productsFetch()
+    }, []);
 
-    const filterProducts = 
+    const filterProduct = products.filter((book) => {
+        const matchesCategory = activeCategory === book.category || activeCategory === "All";
+        const matchesSearch = book.title.toLowerCase().includes(searchTerm.toLowerCase()) || book.author.toLowerCase().includes(searchTerm.toLowerCase());
+
+        return matchesCategory && matchesSearch;
+    })
 
 
 
@@ -35,8 +47,9 @@ const BooksPage = async () => {
                             </svg>
                         </div>
                         <input
+                            onChange={(e) => setSearchTerm(e.target.value)}
                             type="text"
-                            placeholder="Search books, authors, or ISBN..."
+                            placeholder="Search books name or author "
                             className="block w-full pl-12 pr-4 py-3 bg-white border border-gray-200 rounded-md leading-5 shadow-sm placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-blue-500/20 focus:border-blue-500 transition-all duration-200"
                         />
                     </div>
@@ -48,18 +61,16 @@ const BooksPage = async () => {
                         <div className="sticky top-28">
                             <h3 className="text-xs font-bold text-gray-400 uppercase tracking-widest mb-6">Categories</h3>
                             <div className="flex flex-wrap lg:flex-col gap-3">
-                                <button className='w-full text-left px-5 py-3 rounded-md font-semibold bg-black text-white shadow-lg shadow-blue-200 transition-all hover:scale-[1.02]'>
-                                    All Collection
-                                </button>
-                                <button className='w-full text-left px-5 py-3 rounded-md font-medium text-gray-600 bg-white border border-gray-100 hover:bg-gray-50 hover:border-gray-200 transition-all'>
-                                    Story & Fiction
-                                </button>
-                                <button className='w-full text-left px-5 py-3 rounded-md font-medium text-gray-600 bg-white border border-gray-100 hover:bg-gray-50 hover:border-gray-200 transition-all'>
-                                    Technology
-                                </button>
-                                <button className='w-full text-left px-5 py-3 rounded-md font-medium text-gray-600 bg-white border border-gray-100 hover:bg-gray-50 hover:border-gray-200 transition-all'>
-                                    Science & Nature
-                                </button>
+                                {category.map((cat) => (
+                                    <button
+                                        key={cat}
+                                        onClick={() => setActiveCategory(cat)}
+                                        className={`px-5 py-3 rounded-xl text-left font-bold transition-all ${activeCategory === cat ? 'bg-black text-white' : 'bg-white border hover:bg-gray-50'
+                                            }`}
+                                    >
+                                        {cat}
+                                    </button>
+                                ))}
                             </div>
 
                             <div className="hidden lg:block mt-12 p-6 bg-gray-900 rounded-md text-white">
@@ -73,7 +84,7 @@ const BooksPage = async () => {
                     <div className="flex-1">
                         <div className='grid grid-cols-1 sm:grid-cols-2 xl:grid-cols-3 gap-x-8 gap-y-12 items-center'>
                             {
-                                products.map((product) => (
+                                filterProduct.map((product) => (
                                     <div key={product.id} className="group cursor-pointer">
                                         <SingleBook product={product} />
                                     </div>
