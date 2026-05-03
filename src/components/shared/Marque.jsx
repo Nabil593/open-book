@@ -3,7 +3,7 @@ import Marquee from "react-fast-marquee";
 
 const NewsTicker = () => {
     return (
-        <div className="bg-zinc-900 border-b border-zinc-800 py-2 mb-16">
+        <div className="bg-zinc-900 border-b border-zinc-800 py-4 my-30">
             <Marquee
                 gradient={true}
                 gradientColor="black"
