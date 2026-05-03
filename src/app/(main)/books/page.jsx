@@ -85,7 +85,7 @@ const BooksPage = () => {
                         <div className='grid grid-cols-1 sm:grid-cols-2 xl:grid-cols-3 gap-x-8 gap-y-12 items-center'>
                             {
                                 filterProduct.map((product) => (
-                                    <div key={product.id} className="group cursor-pointer">
+                                    <div key={product.id}>
                                         <SingleBook product={product} />
                                     </div>
                                 ))
