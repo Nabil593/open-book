@@ -31,10 +31,6 @@ const BooksPage = () => {
     const { data: session } = authClient.useSession();
     const user = session?.user;
 
-    if (!user) {
-        redirect("/login");
-    }
-
     if (!products) {
         return <span className="loading loading-spinner text-neutral min-h-screen flex items-center justify-center"></span>
     }
