@@ -18,6 +18,7 @@ const Navbar = () => {
     const handleLogout = async () => {
         const { data, error } = await authClient.signOut();
         router.push("/login");
+        router.refresh();
 
         if (error) {
             toast.error();
@@ -68,7 +69,7 @@ const Navbar = () => {
                                 alt="Profile"
                                 className='h-8 w-8 rounded-full object-cover'
                             />
-                            <button onClick={handleLogout} className="btn"><Link href={"/login"}>Logout</Link></button>
+                            <button onClick={handleLogout} className="btn">Logout</button>
                         </>
                         :
                         <>
