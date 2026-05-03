@@ -32,7 +32,11 @@ const BooksPage = () => {
     const user = session?.user;
 
     if (products.length === 0) {
-        return <span className="loading loading-spinner text-neutral min-h-screen flex items-center justify-center"></span>
+        return (
+            <div className="min-h-screen w-full flex items-center justify-center bg-gray-50/50">
+                <span className="loading loading-spinner loading-lg text-neutral"></span>
+            </div>
+        )
     }
 
     return (
