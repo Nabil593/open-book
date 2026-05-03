@@ -1,13 +1,42 @@
-import SingleBook from '@/components/shared/SingleBook';
+"use client"
 import Image from 'next/image';
-import React from 'react';
+import { useParams } from 'next/navigation';
+import React, { useEffect, useState } from 'react';
+import { toast } from 'react-toastify';
 
-const SignleBookPage = async ({ params }) => {
+const SignleBookPage =  () => {
 
-    const { id } = await params;
+    const param = useParams()
+    const id = param?.id;
 
-    const res = await fetch(`https://json-data-book.onrender.com/books/${id}`);
-    const book = await res.json();
+    const [book, setBook] = useState();
+    const [borrrow, setBorrow] = useState(false);
+
+    useEffect(() => {
+        if(!id) return;
+        const selectedProduct = async() => {
+            const res = await fetch(`https://json-data-book.onrender.com/books/${id}`);
+            const bookData = await res.json();
+            setBook(bookData)
+        }
+        selectedProduct()
+        
+    }, [id]);
+
+    if (!book) {
+        return <div className="min-h-screen flex items-center justify-center">Loading...</div>;
+    }
+
+    const handleBorrow = () => {
+
+        if(borrrow) {
+            toast.success("Book Return successfully!");
+        } else {
+            toast.success('Book borrowed successfully!');
+        }
+        
+        setBorrow(!borrrow);
+    }
 
     return (
         <div className="min-h-screen bg-white text-zinc-900 flex items-center justify-center p-6">
@@ -62,8 +91,8 @@ const SignleBookPage = async ({ params }) => {
                     </div>
 
                     <div className="pt-6">
-                        <button className="btn btn-neutral">
-                            Borrow This Book
+                        <button onClick={handleBorrow} className={`btn ${borrrow ? 'btn-error' : 'btn-neutral'}`}>
+                            {borrrow ? 'Return' : "Borrow This Book"}
                         </button>
                     </div>
                 </div>
