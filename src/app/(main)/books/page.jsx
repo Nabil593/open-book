@@ -31,7 +31,7 @@ const BooksPage = () => {
     const { data: session } = authClient.useSession();
     const user = session?.user;
 
-    if (!products.length === 0) {
+    if (products.length === 0) {
         return <span className="loading loading-spinner text-neutral min-h-screen flex items-center justify-center"></span>
     }
 
