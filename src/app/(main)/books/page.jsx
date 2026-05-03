@@ -1,5 +1,6 @@
 "use client"
 import SingleBook from '@/components/shared/SingleBook';
+import { authClient } from '@/lib/auth-client';
 import React, { useEffect, useState } from 'react';
 
 
@@ -26,7 +27,12 @@ const BooksPage = () => {
         return matchesCategory && matchesSearch;
     })
 
+    const { data: session } = authClient.useSession();
+    const user = session?.user;
 
+    if (!user) {
+        redirect("/login");
+    }
 
     return (
         <div className="min-h-screen bg-gray-50/50 py-12">
