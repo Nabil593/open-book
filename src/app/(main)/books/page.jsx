@@ -35,6 +35,10 @@ const BooksPage = () => {
         redirect("/login");
     }
 
+    if (!products) {
+        return <span className="loading loading-spinner text-neutral min-h-screen flex items-center justify-center"></span>
+    }
+
     return (
         <div className="min-h-screen bg-gray-50/50 py-12">
             <div className='max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 space-y-12'>
