@@ -21,10 +21,6 @@ const MyProfile = () => {
         );
     }
 
-    if (!user) {
-        redirect("/login");
-    }
-
     const joinedDate = new Date(user.createdAt).toLocaleDateString('en-US', {
         weekday: 'long',
         year: 'numeric',
