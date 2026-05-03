@@ -4,18 +4,17 @@ import React from 'react';
 
 const SingleBook = ({ product }) => {
 
-    console.log(product)
-
     return (
         <Link href={`/books/${product.id}`}>
-            <div className="card bg-gray-200 w-[282px] shadow-sm">
+            <div className="card w-full bg-gray-200 shadow-sm">
                 <figure>
                     <Image
                         src={product?.image_url}
                         width={250}
                         height={350}
                         alt={product?.title}
-                        className="object-cover h-[300px] pt-4"
+                        className="object-cover h-[350px] pt-4"
+                        priority={true}
                     />
                 </figure>
                 <div className="card-body">

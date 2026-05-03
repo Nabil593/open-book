@@ -30,7 +30,7 @@ const Navbar = () => {
     return (
         <div className="w-full bg-gray-100 mx-auto flex items-center justify-between">
 
-            <div className="navbar w-full max-w-[1200px] mx-auto border-none">
+            <div className="navbar max-w-7xl px-4 sm:px-6 lg:px-8 mx-auto border-none">
                 <div className="navbar-start">
                     <div className="dropdown">
                         <div tabIndex={0} role="button" className="lg:hidden mr-2">

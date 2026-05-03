@@ -9,7 +9,7 @@ const Footer = () => {
 
     return (
         <footer className="w-full bg-[#050505] border-t border-zinc-900 text-zinc-400 py-16">
-            <div className="max-w-[1200px] mx-auto px-6">
+            <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
 
                 {/* Main Grid */}
                 <div className="grid grid-cols-1 md:grid-cols-4 gap-12 mb-12">

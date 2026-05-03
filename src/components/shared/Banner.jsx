@@ -6,7 +6,7 @@ import Link from 'next/link';
 
 const Banner = () => {
     return (
-        <div className='max-w-[1200px] w-full lg:px-0 px-3 mx-auto my-16 rounded-md'>
+        <div className='max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 my-16 rounded-md'>
             <div className="hero bg-gray-200 lg:py-30 md:py-30 py-10 rounded-[20px]">
                 <div className="hero-content text-center lg:flex-row md:flex-row flex-col lg:gap-8 md:gap-8 gap-10">
                     <Image
