@@ -1,6 +1,5 @@
 # 📚 OpenBook | Online Book Borrowing Platform
 
-**Assignment Category:** category-A8-Mango  
 **Live Site:** [https://openbook-psi.vercel.app/]
 
 ## 📖 Project Overview
