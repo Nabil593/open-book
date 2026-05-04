@@ -3,7 +3,6 @@ import { authClient } from '@/lib/auth-client';
 import React from 'react';
 import { Calendar, ShieldCheck, Fingerprint, User } from 'lucide-react';
 import Image from 'next/image';
-import { redirect } from 'next/navigation';
 import Link from 'next/link';
 
 const MyProfile = () => {

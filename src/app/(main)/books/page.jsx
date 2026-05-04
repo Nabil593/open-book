@@ -1,6 +1,5 @@
 "use client"
 import SingleBook from '@/components/shared/SingleBook';
-import { authClient } from '@/lib/auth-client';
 import React, { useEffect, useState } from 'react';
 
 

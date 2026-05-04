@@ -1,7 +1,6 @@
 import { Geist, Geist_Mono, Poppins } from "next/font/google";
 import "./globals.css";
 import { ToastContainer } from "react-toastify";
-import FooterPage from "@/components/shared/Footer";
 import Navbar from "@/components/shared/Navbar";
 import Footer from "@/components/shared/Footer";
 

@@ -1,4 +1,3 @@
-import { Link } from 'lucide-react';
 import React from 'react';
 import SingleBook from './SingleBook';
 
@@ -6,7 +5,6 @@ import SingleBook from './SingleBook';
 const productsFetch = async () => {
     const res = await fetch("https://json-data-book.onrender.com/books")
     const data = await res.json();
-    // console.log(data)
     return data
 }
 

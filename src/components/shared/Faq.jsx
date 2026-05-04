@@ -14,11 +14,9 @@ const Faq = () => {
                 <div className="space-y-3">
                     {faqData.map((item, index) => (
                         <div 
-                            key={index} 
-                            // 'collapse' এর সাথে 'bg-white' এবং 'transition' রাখা হয়েছে স্মুথনেসের জন্য
+                            key={index}
                             className="collapse collapse-arrow bg-white border border-gray-200 rounded-2xl shadow-sm hover:shadow-md transition-all duration-300"
                         >
-                            {/* 'checkbox' ব্যবহারের ফলে এখন একই সাথে একাধিক খোলা যাবে এবং ক্লিক করে বন্ধও করা যাবে */}
                             <input type="checkbox" className="peer" /> 
                             
                             <div className="collapse-title text-lg font-semibold text-gray-800 py-5">

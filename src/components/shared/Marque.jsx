@@ -1,4 +1,4 @@
-"use client"; // Required for interactivity
+"use client";
 import Marquee from "react-fast-marquee";
 
 const NewsTicker = () => {
