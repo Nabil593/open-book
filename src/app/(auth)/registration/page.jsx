@@ -25,9 +25,9 @@ const RegistrationPage = () => {
         const { email, name, photo, password } = data
 
         const { data: res, error } = await authClient.signUp.email({
-            name: name, // required
-            email: email, // required
-            password: password, // required
+            name: name,
+            email: email,
+            password: password,
             image: photo,
             callbackURL: "/login",
         });
@@ -88,7 +88,7 @@ const RegistrationPage = () => {
                     </form>
                     <div className="divider">OR</div>
                     <button onClick={handleGoogle} className='btn w-full flex items-center justify-center gap-2'>{googleLoading ? <span className="loading loading-xs loading-spinner text-neutral"></span> : <FaGoogle />} Login with Google</button>
-                    <p className='flex items-center justify-center'>Already have an account? <Link href={'/login'}><span className='text-blue-300'>Login</span></Link></p>
+                    <p className='flex items-center justify-center'>Already have an account? <Link href={'/login'}><span className='text-blue-300'> Login</span></Link></p>
                 </div>
             </div>
         </div>

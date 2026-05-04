@@ -21,8 +21,8 @@ const LoginPage = () => {
     const handleLogin = async (data) => {
 
         const { data: res, error } = await authClient.signIn.email({
-            email: data.email, // required
-            password: data.password, // required
+            email: data.email,
+            password: data.password,
             rememberMe: true,
             callbackURL: "/",
         });
@@ -73,7 +73,7 @@ const LoginPage = () => {
                     </form>
                     <div className="divider">OR</div>
                     <button onClick={handleGoogle} className='btn w-full flex items-center justify-center gap-2'>{googleLoading ? <span className="loading loading-xs loading-spinner text-neutral"></span> : <FaGoogle />} Login with Google</button>
-                    <p className='flex items-center justify-center'>Dont have an account? <Link href={'/registration'}><span className='text-blue-300'>Sign Up</span></Link></p>
+                    <p className='flex items-center justify-center'>Dont have an account? <Link href={'/registration'}><span className='text-blue-300'> Sign Up</span></Link></p>
                 </div>
             </div>
         </div>
