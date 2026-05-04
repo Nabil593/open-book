@@ -14,7 +14,7 @@ const Banner = () => {
                         alt="Box Office Movie"
                         width={300}
                         height={500}
-                        className="lg:block hidden max-w-sm rounded-lg shadow-2xl transition-transform duration-500 hover:scale-105"
+                        className="animate__animated animate__swing lg:block hidden max-w-sm rounded-lg shadow-2xl transition-transform duration-500 hover:scale-105"
                         priority
                     />
                     <div className="max-w-md lg:text-center md:text-left text-center">
@@ -30,7 +30,7 @@ const Banner = () => {
                         alt="Box Office Movie"
                         width={300}
                         height={500}
-                        className="max-w-sm rounded-lg shadow-2xl transition-transform duration-500 hover:scale-105"
+                        className="animate__animated animate__swing max-w-sm rounded-lg shadow-2xl transition-transform duration-500 hover:scale-105"
                         priority
                     />
                 </div>
