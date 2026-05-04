@@ -31,7 +31,7 @@ const UpdatePage = () => {
 
     return (
         <div className='flex items-center justify-center flex-col space-y-4 my-20'>
-            <div className=' flex items-center justify-center flex-col space-y-4 my-20 bg-white rounded-[24px] shadow-sm border border-gray-100 overflow-hidden py-8'>
+            <div className=' flex items-center justify-center flex-col space-y-4 my-20 bg-white rounded-[24px] shadow-sm border border-gray-100 overflow-hidden p-8'>
                 <h2 className='text-3xl font-bold'>Update Profile</h2>
                 <form onSubmit={handleSubmit(handleUpdate)}>
                     <fieldset className="fieldset mx-auto bg-base-200 border-base-300 rounded-box w-xs border p-4">
