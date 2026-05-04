@@ -5,6 +5,7 @@ import Link from "next/link";
 import { useRouter } from "next/navigation";
 import { toast } from "react-toastify";
 import defaultProfile from "@/assets/defaultProfile.png";
+import NavLink from "./NavLink";
 
 
 const Navbar = () => {
@@ -40,18 +41,18 @@ const Navbar = () => {
                         <ul
                             tabIndex="-1"
                             className="menu menu-sm dropdown-content bg-base-100 rounded-box z-1 mt-3 w-52 p-2 shadow">
-                            <li><Link href={"/"}>Home</Link></li>
-                            <li><Link href={"/books"}>All Books</Link></li>
-                            <li><Link href={"/my-profile"}>My Profile</Link></li>
+                            <li><NavLink href={"/"}>Home</NavLink></li>
+                            <li><NavLink href={"/books"}>All Books</NavLink></li>
+                            <li><NavLink href={"/my-profile"}>My Profile</NavLink></li>
                         </ul>
                     </div>
                     <Link href={"/"} className="text-xl font-bold">OpenBook</Link>
                 </div>
                 <div className="navbar-center hidden lg:flex">
                     <ul className="menu menu-horizontal px-1 gap-6">
-                        <li><Link href={"/"}>Home</Link></li>
-                        <li><Link href={"/books"}>All Books</Link></li>
-                        <li><Link href={"/my-profile"}>My Profile</Link></li>
+                        <li><NavLink href={"/"}>Home</NavLink></li>
+                        <li><NavLink href={"/books"}>All Books</NavLink></li>
+                        <li><NavLink href={"/my-profile"}>My Profile</NavLink></li>
                     </ul>
                 </div>
                 <div className="navbar-end gap-4">
