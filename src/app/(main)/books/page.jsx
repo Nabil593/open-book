@@ -1,16 +1,16 @@
 "use client"
 import SingleBook from '@/components/shared/SingleBook';
 import { authClient } from '@/lib/auth-client';
-import { redirect } from 'next/navigation';
 import React, { useEffect, useState } from 'react';
 
 
 const BooksPage = () => {
 
-    const category = ["All", "Story", "Tech", "Science"];
     const [products, setProducts] = useState([]);
     const [activeCategory, setActiveCategory] = useState("All");
     const [searchTerm, setSearchTerm] = useState("");
+
+    const category = ["All", "Story", "Tech", "Science"];
 
     useEffect(() => {
         const productsFetch = async () => {
@@ -27,9 +27,6 @@ const BooksPage = () => {
 
         return matchesCategory && matchesSearch;
     })
-
-    const { data: session } = authClient.useSession();
-    const user = session?.user;
 
     if (products.length === 0) {
         return (
@@ -76,10 +73,12 @@ const BooksPage = () => {
                                     <button
                                         key={cat}
                                         onClick={() => setActiveCategory(cat)}
-                                        className={`px-5 py-3 rounded-xl text-left font-bold transition-all ${activeCategory === cat ? 'bg-black text-white' : 'bg-white border hover:bg-gray-50'
+                                        className={`px-5 py-3 rounded-xl flex justify-between items-center font-bold transition-all ${activeCategory === cat ? 'bg-black text-white' : 'bg-white border hover:bg-gray-50'
                                             }`}
                                     >
-                                        {cat}
+                                        <span>{cat}</span>
+                                        <span>{cat === "All" ? products.length : products.filter(singlecategory => singlecategory.category.toLowerCase() === cat.toLowerCase()).length}</span>
+
                                     </button>
                                 ))}
                             </div>

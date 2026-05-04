@@ -4,7 +4,7 @@ import { faqData } from '../../../public/faqdata/faqData';
 const Faq = () => {
 
     return (
-        <section className="py-20 bg-gray-50">
+        <section className="py-20 bg-gray-100">
             <div className="max-w-3xl mx-auto px-4">
                 <div className="text-center mb-12">
                     <h2 className="text-3xl font-bold text-gray-900 mb-2 tracking-tight">Frequently Asked Questions</h2>
