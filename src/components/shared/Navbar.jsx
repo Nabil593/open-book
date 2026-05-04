@@ -17,13 +17,13 @@ const Navbar = () => {
 
     const handleLogout = async () => {
         const { data, error } = await authClient.signOut();
-        router.push("/login");
-        router.refresh();
 
         if (error) {
-            toast.error();
+            toast.error(error.message);
         } else {
             toast.success("Logout successful!");
+            router.push("/login");
+            router.refresh();
         }
     }
 

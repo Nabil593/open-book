@@ -15,7 +15,7 @@ const Banner = () => {
                         width={300}
                         height={500}
                         className="lg:block hidden max-w-sm rounded-lg shadow-2xl transition-transform duration-500 hover:scale-105"
-                        priority // First load-এ ইমেজটি দ্রুত দেখানোর জন্য
+                        priority
                     />
                     <div className="max-w-md lg:text-center md:text-left text-center">
                         <h1 className="text-5xl font-bold">Find Your Next Read</h1>
@@ -31,12 +31,12 @@ const Banner = () => {
                         width={300}
                         height={500}
                         className="max-w-sm rounded-lg shadow-2xl transition-transform duration-500 hover:scale-105"
-                        priority // First load-এ ইমেজটি দ্রুত দেখানোর জন্য
+                        priority
                     />
                 </div>
             </div>
 
-            
+
         </div>
     );
 };
