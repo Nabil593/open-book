@@ -27,6 +27,7 @@ OpenBook is a premium, minimalist web application designed to digitize the tradi
 *  **Packages:** 
     * `lucide-react` (for minimalist icons)
     * `react-hot-toast` (for interactive notifications)
+    * `animate.css` (for professional transitions)
 
 ---
 
