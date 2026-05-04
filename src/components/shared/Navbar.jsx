@@ -46,7 +46,7 @@ const Navbar = () => {
                             <li><NavLink href={"/my-profile"}>My Profile</NavLink></li>
                         </ul>
                     </div>
-                    <Link href={"/"} className="text-xl font-bold">OpenBook</Link>
+                    <Link href={"/"} className="text-xl font-extrabold">OpenBook</Link>
                 </div>
                 <div className="navbar-center hidden lg:flex">
                     <ul className="menu menu-horizontal px-1 gap-6">
