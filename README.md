@@ -24,7 +24,7 @@ OpenBook is a premium, minimalist web application designed to digitize the tradi
 *   **Database:** MongoDB
 *   **Auth:** BetterAuth
 *   **Styling:** Tailwind CSS & DaisyUI/HeroUI
-  **Packages:** 
+*  **Packages:** 
     * `lucide-react` (for minimalist icons)
     * `react-hot-toast` (for interactive notifications)
 
